@@ -1,0 +1,25 @@
+micronaut:
+  application:
+    name: blockingIssue
+  server:
+    port: 8000
+  http:
+    services:
+      goog:
+        urls:
+          - https://google.com
+
+  security:
+    oauth2:
+      clients:
+        auth:
+          client-id: myclient
+          client-secret: c635e316-2bc1-40f6-813c-f99caea81a9c
+          client-credentials:
+            enabled: true
+            service-id-regex: goog
+            scope:
+              - phone
+          token:
+            url: http://localhost:8080/auth/realms/myrealm/protocol/openid-connect/token
+            auth-method: client_secret_post
